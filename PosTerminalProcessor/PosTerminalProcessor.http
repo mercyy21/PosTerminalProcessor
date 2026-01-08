@@ -1,0 +1,6 @@
+@PosTerminalProcessor_HostAddress = http://localhost:5299
+
+GET {{PosTerminalProcessor_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
