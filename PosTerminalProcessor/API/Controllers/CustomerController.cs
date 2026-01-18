@@ -10,6 +10,7 @@ namespace PosTerminalProcessor.API.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    //Find a way to make validation globally
 
     public class CustomerController : Controller
     {
@@ -37,6 +38,7 @@ namespace PosTerminalProcessor.API.Controllers
         [HttpPost("create")]
         public async Task<ActionResult<Result>> CreateCustomer(CreateCustomerRequest request, CancellationToken cancellationToken)
         {
+            //Validation shouldn't happen in the service layer but rather in a middleware
             return Ok(await _customerService.CreateCustomer(request, accessToken, cancellationToken));
         }
         /// <summary>
